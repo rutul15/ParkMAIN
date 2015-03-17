@@ -15,7 +15,6 @@
 <body>
 <div class="global-wrap">
     <%@ include file="template/myheader.html" %>
-
     <div class="container">
         <div class="row">
             <div class="col-md-4">

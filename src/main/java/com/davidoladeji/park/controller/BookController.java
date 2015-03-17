@@ -167,7 +167,7 @@ public class BookController {
 
 
     @RequestMapping(value = "/booking/{carparkSpaceId}", method = RequestMethod.GET)
-    public ModelAndView gotoBookingForm(ModelAndView model, SessionStatus status, @ModelAttribute Search search, @ModelAttribute Booking booking, @PathVariable("carparkId") Long carparkId) {
+    public ModelAndView gotoBookingForm(ModelAndView model, @ModelAttribute Search search, @ModelAttribute Booking booking, @PathVariable("carparkSpaceId") Long carparkId) {
 
 
         Carpark carpark = carparkService.findCarparkById(carparkId);
@@ -195,12 +195,12 @@ public class BookController {
         model.addObject("spaceTypeList", spaceTypeList);
 
 
-        model.setViewName("spacesatcarpark");
+        model.setViewName("book");
         return model;
     }
 
     @RequestMapping(value = "/booking/payment-form", method = RequestMethod.GET)
-    public ModelAndView bookingPayment(ModelAndView model) {
+    public ModelAndView bookingPayment(ModelAndView model, @ModelAttribute Search search, @ModelAttribute Booking booking) {
 
 
         model.setViewName("payment-form");
@@ -209,9 +209,10 @@ public class BookController {
 
 
     @RequestMapping(value = "/booking/payment-successful", method = RequestMethod.GET)
-    public ModelAndView successfulBooking(ModelAndView model) {
+    public ModelAndView successfulBooking(ModelAndView model, @ModelAttribute Search search, @ModelAttribute Booking booking, SessionStatus sessionStatus) {
 
 
+        sessionStatus.isComplete();
         model.setViewName("payment-success");
         return model;
     }
