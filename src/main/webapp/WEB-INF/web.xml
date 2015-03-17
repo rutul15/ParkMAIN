@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-    <display-name>Parkit - Airport Parking Made Easy</display-name>
+    <display-name>Safe Parking - Airport Parking Made Easy</display-name>
 
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
