@@ -60,6 +60,10 @@
     <orderEntry type="library" name="JPA 2.0-JPA 2.0" level="project" />
     <orderEntry type="library" name="Spring-4.1.5.RELEASE" level="project" />
     <orderEntry type="library" name="org.hibernate:hibernate-core:4.2.0.Final" level="project" />
+    <orderEntry type="library" name="XmlSchema-1.3.2" level="project" />
+    <orderEntry type="library" name="javax.persistence" level="project" />
+    <orderEntry type="library" name="asm-5.0.3" level="project" />
+    <orderEntry type="library" name="jaxb-api-2.2.11" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.jbossas:jboss-as-spring-int:5.1.0.GA" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.deployers:jboss-deployers-vfs-spi:2.0.7.GA" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.cl:jboss-classloading:2.0.6.GA" level="project" />
@@ -178,9 +182,5 @@
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.9" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.1" level="project" />
-    <orderEntry type="library" name="XmlSchema-1.3.2" level="project" />
-    <orderEntry type="library" name="javax.persistence" level="project" />
-    <orderEntry type="library" name="asm-5.0.3" level="project" />
-    <orderEntry type="library" name="jaxb-api-2.2.11" level="project" />
   </component>
 </module>

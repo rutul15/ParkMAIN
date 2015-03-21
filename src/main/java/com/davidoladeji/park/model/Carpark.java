@@ -25,11 +25,11 @@ public class Carpark implements Serializable {
     private Long id;
 
 
-    @Size(min = 1, max = 8)
+   // @Size(min = 1, max = 8)
     @Column(name = "codename", nullable = false, unique = true, length = 8)
     private String codename;
 
-    @Size(min = 1, max = 20)
+   // @Size(min = 1, max = 20)
     @Column(name = "mobile")
     private String mobile;
 
@@ -37,7 +37,7 @@ public class Carpark implements Serializable {
     @Column(name = "capacity")
     private int capacity;
 
-    @Size(min = 1, max = 10)
+   // @Size(min = 1, max = 10)
     @Column(name = "capacitydisabled")
     private int capacitydisabled;
 

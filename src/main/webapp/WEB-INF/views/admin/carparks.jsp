@@ -166,72 +166,7 @@
                         </div>
                         <!-- // Total products & Sort by options END -->
                         <div class="separator bottom"></div>
-                        <!-- Filters -->
-                        <%--<div class="filter-bar">
-                            <form class="margin-none form-inline">
-                                <!-- From -->
-                                <div class="form-group col-md-2 padding-none">
-                                    <label>From:</label>
 
-                                    <div class="input-group">
-                                        <input type="text" name="from" id="dateRangeFrom" class="form-control"
-                                               value="08/05/13"
-                                                />
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i>
-                                            </span>
-                                    </div>
-                                </div>
-                                <!-- // From END -->
-                                <!-- To -->
-                                <div class="form-group col-md-2 padding-none">
-                                    <label>To:</label>
-
-                                    <div class="input-group">
-                                        <input type="text" name="to" id="dateRangeTo" class="form-control"
-                                               value="08/18/13"
-                                                />
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i>
-                                            </span>
-                                    </div>
-                                </div>
-                                <!-- // To END -->
-                                <!-- Min -->
-                                <div class="form-group col-md-2 padding-none">
-                                    <label>Min:</label>
-
-                                    <div class="input-group">
-                                        <input type="text" name="from" class="form-control" value="100"/>
-                                            <span class="input-group-addon"><i class="fa fa-euro"></i>
-                                            </span>
-                                    </div>
-                                </div>
-                                <!-- // Min END -->
-                                <!-- Max -->
-                                <div class="form-group col-md-2 padding-none">
-                                    <label>Max:</label>
-
-                                    <div class="input-group">
-                                        <input type="text" name="from" class="form-control" value="500"/>
-                                            <span class="input-group-addon"><i class="fa fa-euro"></i>
-                                            </span>
-                                    </div>
-                                </div>
-                                <!-- // Max END -->
-                                <!-- Select -->
-                                <div class="form-group col-md-3 padding-none">
-                                    <label class="label-control">Select:</label>
-
-                                    <div class="col-md-8 padding-none">
-                                        <select name="from" class="form-control">
-                                            <option>Some option</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- // Select END -->
-                                <div class="clearfix"></div>
-                            </form>
-                        </div>--%>
-                        <!-- // Filters END -->
                     </div>
                     <!-- Products table -->
                     <table class="table table-condensed table-striped table-primary table-vertical-center checkboxs js-table-sortable">

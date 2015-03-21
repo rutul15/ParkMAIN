@@ -8,6 +8,7 @@ import com.davidoladeji.park.service.interfaces.SearchService;
 import org.apache.log4j.Logger;
 import org.jboss.spring.callback.SpringLifecycleInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.ejb.Stateless;
 import javax.interceptor.Interceptors;

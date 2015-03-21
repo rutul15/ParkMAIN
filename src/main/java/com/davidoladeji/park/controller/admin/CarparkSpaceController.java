@@ -97,7 +97,7 @@ public class CarparkSpaceController {
 
 
     @RequestMapping(value = "/admin/spaces/editPage", method = RequestMethod.POST)
-    public ModelAndView editSpaceAction(@Valid @ModelAttribute("space") CarparkSpace space, BindingResult result, @RequestParam("id") Long id) {
+    public ModelAndView editSpaceAction(@ModelAttribute("space") CarparkSpace space, BindingResult result, @RequestParam("id") Long id) {
 
 
         ModelAndView modell = new ModelAndView();

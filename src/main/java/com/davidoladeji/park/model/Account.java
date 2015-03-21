@@ -21,7 +21,7 @@ public class Account implements Serializable {
 
     private static final long serialVersionUID = 6253515390414044969L;
 
-    @ManyToOne
+    @OneToOne()
     Role userRole;
 
 

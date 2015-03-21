@@ -3,13 +3,6 @@
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="ParkMAIN.war">
       <element id="artifact" artifact-name="ParkMAIN:war exploded" />
-      <element id="directory" name="WEB-INF">
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="JPA 2.0-JPA 2.0" />
-          <element id="library" level="project" name="org.hibernate:hibernate-core:4.2.0.Final" />
-          <element id="library" level="project" name="javax.persistence" />
-        </element>
-      </element>
     </root>
   </artifact>
 </component>

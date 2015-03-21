@@ -1,8 +1,8 @@
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page session="true" %>
+    <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+    <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ page session="true" %>
 <!DOCTYPE HTML>
 <html class="full">
 
@@ -72,7 +72,7 @@
 
                                     <div class="form-group form-group-ghost form-group-icon-left"><i
                                             class="fa fa-user input-icon input-icon-show"></i>
-                                        <label name="usernameLB" id="usernameLB">Email: ${username}</label>
+                                        <label name="usernameLB" id="usernameLB">Email: </label>
                                         <input name="username" id="username" class="form-control"
                                                placeholder="e.g. johndoe@gmail.com" type="text"/>
                                     </div>
