@@ -20,14 +20,28 @@
                             </security:authorize>
 
 
-                            <li class="nav-drop"><a href="#">GBP &pound;<i class="fa fa-angle-down"></i><i
+                            <li class="nav-drop"><a href="#">
+                            	<span id="exchange" >
+                            		<% String currency = (String) session.getAttribute("currency.session"); 
+                            			if(currency == null){
+                            				currency = "GBP &#163";
+                            			}
+                            		%>
+                            		<%= currency %>
+                            		
+                            	</span>
+                            	
+                            	<i class="fa fa-angle-down"></i><i
                                     class="fa fa-angle-up"></i></a>
                                 <ul class="list nav-drop-menu">
-                                    <li><a href="#">EUR<span class="right">&euro;</span></a>
+                                    
+                                    <li><a href="#" onclick="javascript: exchange('GBP', '&#163');">GBP<span class="right">&pound;</span></a>
                                     </li>
-                                    <li><a href="#">JPY<span class="right">&yen;</span></a>
+                                    <li><a href="#" onclick="javascript: exchange('EUR', '&#128');">EUR<span class="right">&euro;</span></a>
                                     </li>
-                                    <li><a href="#">USD<span class="right">&dollar;</span></a>
+                                    <li><a href="#" onclick="javascript: exchange('JPY', '&#165');">JPY<span class="right">&yen;</span></a>
+                                    </li>
+                                    <li><a href="#" onclick="javascript: exchange('USD', '&#36');">USD<span class="right">&dollar;</span></a>
                                     </li>
 
                                 </ul>
@@ -63,3 +77,29 @@
     </div>
 
 </header>
+<script>
+	function exchange(currency, cval){
+		
+		
+		// ajax to convert
+		
+		$.ajax({
+	    	url: '${pageContext.request.contextPath}/exchange/',
+	    	type: "GET",
+			data: {'symb': currency},
+	    	
+	    	success: function(data) {
+	    		console.log("Data "+ data);
+	    		$('#totalTrip').html(data);
+	    	}
+	    });
+		
+		// refresh page
+		$('#exchange').html(currency+ ' ' +cval);
+		
+		
+		
+		
+	}
+
+</script>

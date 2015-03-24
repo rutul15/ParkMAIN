@@ -5,8 +5,6 @@
 <!DOCTYPE HTML>
 <html>
 
-<html>
-
 <head>
     <%@ include file="template/header.html" %>
     <%@ include file="template/styles.html" %>
@@ -16,11 +14,11 @@
 
 <body>
 <div class="global-wrap">
-    <%@ include file="template/myheader.html" %>
+    <%@ include file="template/myheader.jsp" %>
     <div class="container">
         <div class="mfp-with-anim mfp-hide mfp-dialog mfp-search-dialog" id="search-dialog">
             <h3>Search for Available Carpark</h3>
-            <form:form commandName="search" action="/spaces/search" method="post">
+            <form:form commandName="search" action="/spaces/search" method="get">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group form-group-lg form-group-icon-left"><i
@@ -34,6 +32,10 @@
                             </form:select>
                         </div>
                     </div>
+                    
+                    
+                    <form:hidden path="spaceTypeId"/>
+                                                       
                 </div>
                 <div class="input-daterange" data-date-format="yyyy-MM-dd">
                     <div class="row">
@@ -42,32 +44,48 @@
                                 <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                 <label>Travel Date</label>
 
-                                <form:input class="date-pick form-control" path="traveldate" name="start" type="text"/>
+                               
+                                
+                                <fmt:formatDate value="${search.traveldate}" var="fmtTravelDate"
+                                                                               pattern="yyyy-MM-dd" />
+                                                                <form:input class="date-pick1 form-control r_from_date"
+                                                                            path="traveldate" name="start"  value = "${fmtTravelDate}" type="text" required="required"/>
+                                
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group form-group-lg form-group-icon-left">
                                 <i class="fa fa-clock-o input-icon input-icon-highlight"></i>
                                 <label>Travel Time</label>
-                                <form:input class="time-pick form-control" path="traveltime" name="traveltime"
-                                            value="12:00 AM"
-                                            type="text"/>
+                                
+                                <fmt:formatDate value="${search.travelenddate}" var="fmtTravelTime"
+                                                                               pattern="hh:mm:ss" />
+                                                                <form:input class="time-pick form-control"
+                                                                            path="traveltime" name="traveltime"
+                                                                            value="${fmtTravelTime}" type="text" required="required"/>
+                                
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group form-group-lg form-group-icon-left">
                                 <i class="fa fa-calendar input-icon input-icon-highlight"></i>
                                 <label>Trip End Date</label>
-                                <form:input class="date-pick form-control" path="travelenddate" name="end" type="text"/>
+                                <fmt:formatDate value="${search.travelenddate}" var="fmtTravelEndDate"
+                                                                               pattern="yyyy-MM-dd" />
+                                                                <form:input class="date-pick1 form-control r_to_date"
+                                                                            path="travelenddate" name="end"
+                                                                            value = "${fmtTravelEndDate}" type="text" required="required"/>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group form-group-lg form-group-icon-left">
                                 <i class="fa fa-clock-o input-icon input-icon-highlight"></i>
                                 <label>Trip End Time</label>
-                                <form:input class="time-pick form-control" path="travelendtime" name="travelendtime"
-                                            value="12:00 AM"
-                                            type="text"/>
+                                <fmt:formatDate value="${search.travelendtime}" var="fmtTravelEndTime"
+                                                                               pattern="hh:mm:ss" />
+                                                                <form:input class="time-pick form-control"
+                                                                            path="travelendtime" name="travelendtime"
+                                                                            value="${fmtTravelEndTime}" type="text" required="required"/>
                             </div>
                         </div>
                     </div>
@@ -144,9 +162,9 @@
                                             <div class="col-md-3"><span
                                                     class="booking-item-price">&pound; ${carpark.regularprice}</span><span>/space</span>
 
-                                                <p class="booking-item-flight-class">Average price</p><a
-                                                        class="btn btn-primary" href="/spaces/${carpark.id}">Book
-                                                    This</a>
+                                                <p class="booking-item-flight-class">Average price</p>
+                                                <c:url var="bookthis" value="/spaces/${carpark.id}"></c:url>
+                                                	<a class="btn btn-primary" href="${bookthis }">Book This</a>
                                             </div>
                                         </div>
                                     </div>

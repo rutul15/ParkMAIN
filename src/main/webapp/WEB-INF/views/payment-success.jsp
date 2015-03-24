@@ -13,16 +13,16 @@
 
 <body>
 <div class="global-wrap">
-    <%@ include file="template/myheader.html" %>
+    <%@ include file="template/myheader.jsp" %>
 
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <i class="fa fa-check round box-icon-large box-icon-center box-icon-success mb30"></i>
 
-                <h2 class="text-center">John, your payment was successful!</h2>
-                <h5 class="text-center mb30">Booking details has been send to johndoe@gmail.com</h5>
-                <ul class="order-payment-list list mb30">
+                <h2 class="text-center">${account.firstName}, your payment was successful!</h2>
+                <h5 class="text-center mb30">Booking details has been send to ${account.username}</h5>
+                <!-- <ul class="order-payment-list list mb30">
                     <li>
                         <div class="row">
                             <div class="col-xs-9">
@@ -53,26 +53,8 @@
                             </div>
                         </div>
                     </li>
-                </ul>
-                <%--<h4 class="text-center">You might also need in New York</h4>--%>
-                <%--                    <ul class="list list-inline list-center">
-                                        <li><a class="btn btn-primary" href="#"><i class="fa fa-building-o"></i> Hotels</a>
-                                            <p class="text-center lh1em mt5"><small>398 offers<br /> from $139</small>
-                                            </p>
-                                        </li>
-                                        <li><a class="btn btn-primary" href="#"><i class="fa fa-home"></i> Rentlas</a>
-                                            <p class="text-center lh1em mt5"><small>229 offers<br /> from $143</small>
-                                            </p>
-                                        </li>
-                                        <li><a class="btn btn-primary" href="#"><i class="fa fa-dashboard"></i> Cars</a>
-                                            <p class="text-center lh1em mt5"><small>180 offers<br /> from $73</small>
-                                            </p>
-                                        </li>
-                                        <li><a class="btn btn-primary" href="#"><i class="fa fa-bolt"></i> Activities</a>
-                                            <p class="text-center lh1em mt5"><small>274 offers<br /> from $131</small>
-                                            </p>
-                                        </li>
-                                    </ul>--%>
+                </ul> -->
+                
             </div>
         </div>
         <div class="gap"></div>

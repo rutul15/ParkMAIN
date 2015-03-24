@@ -16,7 +16,7 @@
 
 <body>
 <div class="global-wrap">
-    <%@ include file="template/myheader.html" %>
+    <%@ include file="template/myheader.jsp" %>
     <div class="container">
         <div class="mfp-with-anim mfp-hide mfp-dialog mfp-search-dialog" id="search-dialog">
             <h3>Search for Available Carpark</h3>
@@ -143,9 +143,9 @@
                                             <div class="col-md-3"><span
                                                     class="booking-item-price">&pound; ${space.carpark.regularprice}</span><span></span>
 
-                                                <p class="booking-item-flight-class">Regular price</p><a
-                                                        class="btn btn-primary" href="/booking/${space.id}">Book
-                                                    This</a>
+                                                <p class="booking-item-flight-class">Regular price</p>
+                                                 <c:url var="bookthis" value="/booking/${space.id}"></c:url>
+                                                <a class="btn btn-primary" href="${bookthis }">Book This</a>
                                             </div>
                                         </div>
                                     </div>

@@ -10,7 +10,6 @@
 <!DOCTYPE HTML>
 <html>
 
-<html>
 
 <head>
     <%@ include file="template/header.html" %>
@@ -22,7 +21,7 @@
 
 <body>
 <div class="global-wrap">
-    <%@ include file="template/homeheader.html" %>
+    <%@ include file="template/myheader.jsp" %>
 
     <!-- MAIN AREA -->
     <div class="top-area show-onload">
@@ -47,8 +46,10 @@
                                         <div class="tab-pane fade in active" id="tab-1">
 
                                             <h2>Search for parking space </h2>
+                                            <form:errors path="*"></form:errors>
+                                            <c:url var="action" value="/spaces/search"></c:url>
 
-                                            <form:form commandName="search" action="/spaces/search" method="get">
+                                            <form:form commandName="search" action="${action }" method="get">
                                                 <form:errors path="*" cssClass="has-error, notify-error"/>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -56,7 +57,7 @@
                                                                 class="fa fa-map-marker input-icon"></i>
                                                             <label>Select Airport</label>
                                                             <form:select path="airportid"
-                                                                         class="typeahead form-control">
+                                                                         class="typeahead1 form-control">
                                                                 <c:forEach items="${airportList}" var="airport">
                                                                     <form:option value="${airport.id}"
                                                                                  label="${airport.name}"/>
@@ -70,7 +71,7 @@
                                                                 class="fa fa-map-marker input-icon"></i>
                                                             <label>Select Space Type</label>
                                                             <form:select path="spaceTypeId"
-                                                                         class="typeahead form-control">
+                                                                         class="typeahead1 form-control">
                                                                 <c:forEach items="${spaceTypeList}" var="spaceType">
                                                                     <form:option value="${spaceType.id}"
                                                                                  label="${spaceType.name}"/>
@@ -88,8 +89,8 @@
                                                                 <label>Travel Date</label>
                                                                 <fmt:formatDate value="${search.traveldate}" var="fmtTravelDate"
                                                                                pattern="yyyy-MM-dd" />
-                                                                <form:input class="date-pick form-control"
-                                                                            path="traveldate" name="start"  value = "${fmtTravelDate}" type="text"/>
+                                                                <form:input class="date-pick1 form-control r_from_date"
+                                                                            path="traveldate" name="start"  value = "${fmtTravelDate}" type="text" required="required"/>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
@@ -100,7 +101,7 @@
                                                                                pattern="hh:mm:ss" />
                                                                 <form:input class="time-pick form-control"
                                                                             path="traveltime" name="traveltime"
-                                                                            value="${fmtTravelTime}" type="text"/>
+                                                                            value="${fmtTravelTime}" type="text" required="required"/>
 
                                                             </div>
                                                         </div>
@@ -110,9 +111,9 @@
                                                                 <label>Trip End Date</label>
                                                                 <fmt:formatDate value="${search.travelendtime}" var="fmtTravelEndDate"
                                                                                pattern="yyyy-MM-dd" />
-                                                                <form:input class="date-pick form-control"
+                                                                <form:input class="date-pick1 form-control r_to_date"
                                                                             path="travelenddate" name="end"
-                                                                            value = "${fmtTravelEndDate}" type="text"/>
+                                                                            value = "${fmtTravelEndDate}" type="text" required="required"/>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
@@ -123,7 +124,7 @@
                                                                                pattern="hh:mm:ss" />
                                                                 <form:input class="time-pick form-control"
                                                                             path="travelendtime" name="travelendtime"
-                                                                            value="${fmtTravelEndTime}" type="text"/>
+                                                                            value="${fmtTravelEndTime}" type="text" required="required"/>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -5,6 +5,10 @@ import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
+
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -88,6 +92,12 @@ public class Booking implements Serializable {
 
     @ManyToOne
     private Account account;
+    
+    @Transient
+    private double total;
+    
+    @Transient
+    private String currencyIn;
 
 
     public Booking() {
@@ -249,4 +259,33 @@ public class Booking implements Serializable {
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
     }
+    
+    public int getNumOfDays(){
+    	
+    	DateTime aTime = new  DateTime(arrivalDate);
+    	DateTime dTime = new  DateTime(departureDate);
+    	System.out.println(aTime + " " + dTime);
+    	
+    	int d = Days.daysBetween(aTime, dTime).getDays();
+    	
+    	return d;
+    }
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+	public String getCurrencyIn() {
+		return currencyIn;
+	}
+
+	public void setCurrencyIn(String currencyIn) {
+		this.currencyIn = currencyIn;
+	}
+
+
 }

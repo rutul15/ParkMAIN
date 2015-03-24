@@ -23,9 +23,11 @@
 
             <property name="hibernate.connection.username" value="daveola"/>
             <property name="hibernate.connection.password" value="mydream"/>
+           
+            
             <property name="hibernate.max_fetch_depth" value="5"/>
-            <property name="hibernate.show_sql" value="true"/>
-
+            <property name="hibernate.show_sql" value="false"/>
+			<!-- <property name="hbm2ddl.auto" value="create"/> -->
         </properties>
     </persistence-unit>
 </persistence>

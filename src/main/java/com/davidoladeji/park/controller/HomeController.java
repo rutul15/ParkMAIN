@@ -5,6 +5,7 @@ import com.davidoladeji.park.model.Search;
 import com.davidoladeji.park.model.SpaceType;
 import com.davidoladeji.park.service.interfaces.AirportService;
 import com.davidoladeji.park.service.interfaces.SpaceTypeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping(value = {"/", "home"})
@@ -27,7 +30,7 @@ public class HomeController {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView homePage(ModelAndView model, @ModelAttribute("search") Search search, BindingResult result) {
+    public ModelAndView homePage(ModelAndView model, @ModelAttribute("search") Search search, BindingResult result, HttpSession session) {
 
         /**
          * Send Space Type List to front-end for drop-down in form
@@ -39,6 +42,10 @@ public class HomeController {
         model.addObject("airportList", airportList);
 
         model.setViewName("home");
+        
+        session.removeAttribute("currency.session");
+        session.removeAttribute("last.exchange.symbol");
+        
         return model;
     }
 }

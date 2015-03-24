@@ -89,8 +89,8 @@
                             </div>
                             <div class="col-md-4">
                                 <h3 class="mb15">Create an Account</h3>
-
-                                <form:form commandName="user" action="/profile/register/add">
+								<spring:url var="addAction" value="/profile/register/add"/>
+                                <form:form commandName="user" action="${addAction }">
                                 <form:errors path="*" cssClass="error"/>
                                 <div class="form-group form-group-ghost form-group-icon-left"><i
                                         class="fa fa-user input-icon input-icon-show"></i>

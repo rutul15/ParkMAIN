@@ -49,7 +49,7 @@ public class Account implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @Min(5)
+    //@Min(5)
     @Column(name = "password")
     private String password;
 

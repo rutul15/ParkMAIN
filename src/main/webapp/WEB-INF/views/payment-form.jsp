@@ -5,7 +5,6 @@
 <!DOCTYPE HTML>
 <html>
 
-<html>
 
 <head>
     <%@ include file="template/header.html" %>
@@ -16,8 +15,10 @@
 
 <body>
 <div class="global-wrap">
-    <%@ include file="template/myheader.html" %>
+    <%@ include file="template/myheader.jsp" %>
     <div class="container">
+    <c:url value="/booking/payment-successful" var = "action"/>
+    <form:form class="cc-form" action="${action }" commandName="booking" method="get">
         <div class="row">
             <div class="col-md-4">
                 <img class="pp-img" src="img/paypal.png" alt="Image Alternative text" title="Image Title"/>
@@ -50,8 +51,8 @@
                 </ul>
                 <div class="gap gap-small"></div>
                 <h4>Pay with new Card</h4>
-
-                <form class="cc-form" action="/booking/payment-successful">
+				
+                
                     <div class="clearfix">
                         <div class="form-group form-group-cc-number">
                             <label>Card Number</label>
@@ -82,7 +83,7 @@
                         <button type="submit" class="btn btn-primary btn-lg pull-right">Proceed Payment</button>
                     </div>
 
-                </form>
+               
             </div>
 
             <div class="col-md-4">
@@ -91,55 +92,39 @@
                         <a class="booking-item-payment-img" href="#">
                             <img src="img/car.png" alt="Image Alternative text" title="Image Title"/>
                         </a>
-                        <h5 class="booking-item-payment-title"><a href="#">Car park Name</a></h5>
+                        <h5 class="booking-item-payment-title"><a href="#">${booking.carparkSpace.carpark.codename }</a></h5>
                     </header>
                     <ul class="booking-item-payment-details">
                         <li>
-                            <h5>Booking for {number} days</h5>
+                            <h5>Booking for ${booking.numOfDays} days</h5>
 
                             <div class="booking-item-payment-date">
-                                <p class="booking-item-payment-date-day">April, 26</p>
+                                <p class="booking-item-payment-date-day"><fmt:formatDate pattern="MMMM, dd" 
+            value="${booking.arrivalDate}" /></p>
 
-                                <p class="booking-item-payment-date-weekday">Saturday</p>
+                                <p class="booking-item-payment-date-weekday"><fmt:formatDate pattern="EEEE" 
+            value="${booking.arrivalDate}" /></p>
                             </div>
                             <i class="fa fa-arrow-right booking-item-payment-date-separator"></i>
 
                             <div class="booking-item-payment-date">
-                                <p class="booking-item-payment-date-day">May, 3</p>
+                                <p class="booking-item-payment-date-day"><fmt:formatDate pattern="MMMM, dd" 
+            value="${booking.departureDate}" /></p>
 
-                                <p class="booking-item-payment-date-weekday">Saturday</p>
+                                <p class="booking-item-payment-date-weekday"><fmt:formatDate pattern="EEEE" 
+            value="${booking.departureDate}" /></p>
                             </div>
                         </li>
                         <li>
-                            <h5>Car (2 Passengers)</h5>
-                            <ul class="booking-item-payment-price">
-                                <li>
-                                    <p class="booking-item-payment-price-title">Equipment</p>
-
-                                    <p class="booking-item-payment-price-amount">$295</p>
-                                </li>
-                                <li>
-                                    <p class="booking-item-payment-price-title">7 days</p>
-
-                                    <p class="booking-item-payment-price-amount">$70
-                                        <small>/per day</small>
-                                    </p>
-                                </li>
-                                <li>
-                                    <p class="booking-item-payment-price-title">Taxes</p>
-
-                                    <p class="booking-item-payment-price-amount">$5
-                                        <small>/per day</small>
-                                    </p>
-                                </li>
-                            </ul>
+                            <h5>Car: ${booking.carBody }</h5>
                         </li>
                     </ul>
-                    <p class="booking-item-payment-total">Total trip: <span>$842</span>
+                    <p class="booking-item-payment-total">Total trip: <span id="totalTrip">${booking.total}</span>
                     </p>
                 </div>
             </div>
         </div>
+         </form:form>
         <div class="gap"></div>
     </div>
     <%@ include file="template/footer.html" %>

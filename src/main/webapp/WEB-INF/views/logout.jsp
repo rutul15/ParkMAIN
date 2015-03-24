@@ -14,7 +14,7 @@
 
 <body>
 <div class="global-wrap">
-    <%@ include file="template/homeheader.html" %>
+    <%@ include file="template/myheader.jsp" %>
 
     <!-- TOP AREA -->
     <div class="top-area show-onload">

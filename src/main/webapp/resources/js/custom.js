@@ -75,11 +75,14 @@ $('.typeahead').typeahead({
 
 
 $('input.date-pick, .input-daterange, .date-pick-inline').datepicker({
-    todayHighlight: true
+    todayHighlight: true,
+    startDate: new Date() 
 });
 
 
 $('input.date-pick, .input-daterange input[name="start"]').datepicker('setDate', 'today');
+
+$('input.date-pick, .input-daterange input[name="start"]').datepicker({ dateFormat: 'yyyy-mm-dd' });
 $('.input-daterange input[name="end"]').datepicker('setDate', '+7d');
 
 $('input.time-pick').timepicker({
@@ -497,3 +500,26 @@ function tagline_vertical_slide() {
 function abortTimer() { // to be called when you want to stop the timer
     clearInterval(tid);
 }
+
+
+var d = new Date();
+$(".r_from_date").datepicker({
+    format: 'yyyy-mm-dd',
+    autoclose: true,
+    startDate: new Date(d.setDate(d.getDate() + 1)),
+}).on('changeDate', function (selected) {
+    var startDate = new Date(selected.date.valueOf() + 1);
+    $('.r_to_date').datepicker('setStartDate', startDate);
+}).on('clearDate', function (selected) {
+    $('.r_to_date').datepicker('setStartDate', null);
+});
+
+$(".r_to_date").datepicker({
+    format: 'yyyy-mm-dd',
+    autoclose: true,
+}).on('changeDate', function (selected) {
+    var endDate = new Date(selected.date.valueOf());
+    $('.r_from_date').datepicker('setEndDate', endDate);
+}).on('clearDate', function (selected) {
+    $('.r_from_date').datepicker('setEndDate', null);
+});

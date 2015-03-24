@@ -35,7 +35,7 @@ public class Search implements Serializable {
     @Future
     private Date traveldate;
 
-    // @Temporal(TemporalType.TIME)
+    @DateTimeFormat(pattern = "HH:ss:mm")
     private Date traveltime;
 
     /**
@@ -46,6 +46,7 @@ public class Search implements Serializable {
     @Future
     private Date travelenddate;
 
+    @DateTimeFormat(pattern = "HH:ss:mm")
     private Date travelendtime;
 
     /**

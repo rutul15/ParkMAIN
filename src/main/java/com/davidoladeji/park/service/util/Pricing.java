@@ -22,7 +22,7 @@ public class Pricing {
      * @param spacetype
      * @return
      */
-    public double getPriceByType(double price, int spacetype) {
+    public static double getPriceByType(double price, int spacetype) {
 
         double newprice = 0.00;
 
@@ -55,7 +55,7 @@ public class Pricing {
      * @param departdate
      * @return
      */
-    public double getPriceByBookingNumDays(double price, LocalDate arrivaldate, LocalDate departdate) {
+    public static double getPriceByBookingNumDays(double price, LocalDate arrivaldate, LocalDate departdate) {
 
         double newprice = 0.0;
         int days = Days.daysBetween(arrivaldate, departdate).getDays();
@@ -77,17 +77,32 @@ public class Pricing {
      * @return
      */
 
-    public double getPriceByHowAdvance(double price, LocalDate arrivaldate) {
+    public static double getPriceByHowAdvance(double price, LocalDate arrivaldate) {
 
-        double newprice = 0.0;
-        int days = Days.daysBetween(arrivaldate, LocalDate.now()).getDays();
-
+    	double newprice = 0.0;
+        int days = Days.daysBetween(LocalDate.now(), arrivaldate).getDays();
+        System.out.println("Date diff: "+ days);
         if (days >= 5) {
             //Give Discounts for bookings of 5 days and more
             newprice = price - (price * 0.25);
         }
 
         return newprice;
+    }
+    
+    /**
+     * Gets the total trip price.
+     *
+     * @param price the price
+     * @param arrivaldate the arrivaldate
+     * @param departdate the departdate
+     * @return the total trip price
+     */
+    public static double getTotalTripPrice(double price, LocalDate arrivaldate, LocalDate departdate) {
+
+      
+        int days = Days.daysBetween(arrivaldate, departdate).getDays();
+        return price * days;
     }
 
 }

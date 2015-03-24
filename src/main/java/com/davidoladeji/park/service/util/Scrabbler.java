@@ -23,4 +23,8 @@ public class Scrabbler {
 
         return password;
     }
+    
+    public static void main(String[] args){
+    	System.out.println(new Scrabbler().encrypt("rutul123"));
+    }
 }
